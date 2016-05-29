@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Search</title>
+</head>
+<body>
+
+      {% if message %}
+        <ul>
+          <li style="color: darkred;">{{ message }}</li>
+        </ul>
+      {% endif %}
+
+
+    <form method="POST">
+        <div class="row">
+            <input type="text" name="search" placeholder="enter request" autofocus size="70"/>
+        </div>
+
+        <br>
+        <div class="row" id="submit">
+            <input type="Submit" value="Search" />
+        </div>
+    </form>
+
+    {% if journals_info %}
+      {% for journal_name, info in journals_info.items() %}
+
+      <div>
+        <dl>
+          <dt>Journal name:</dt>
+           <dd>{{ journal_name }}</dd>
+          <dt>Authors:</dt>
+            {% for author in info['authors']%}
+                <dd>{{ author }}</dd>
+            {% endfor %}
+          <dt>Pub Date:</dt>
+           <dd>{{ info['pub_date'] }}</dd>
+
+          <dt>Epub Date:</dt>
+           <dd>{{ info['epub_date'] }}</dd>
+        </dl>
+      </div>
+
+      {% endfor %}
+    {% endif %}
+
+</body>
+</html>
