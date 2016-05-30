@@ -9,7 +9,7 @@ def get_uids(journals, terms):
 
     with ThreadPoolExecutor(max_workers=5) as pool:
         results = []
-        for journal in journals[:50]:
+        for journal in journals[:75]:
             for term in terms:
                 url = 'http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?term={}+{}[pdat]'.format(journal, term)
                 results.append(pool.submit(make_request, url))
