@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, flash
+from flask import Flask, render_template, request
 
 from cos import get_journals, CosSourceError
 from ncbi_api import get_uids, get_journal_info
